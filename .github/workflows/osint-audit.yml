@@ -54,10 +54,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: blackbird-report
+          # Blackbird names its output <target>_<DD_MM_YYYY>_blackbird.<ext>.
+          # The generic *.json/*.csv patterns matched nothing, and 'results_*'
+          # never existed at all, so a successful run uploaded no artifact.
           path: |
-            results_*
-            *.json
-            *.csv
-            *.pdf
-            *.html
+            *_blackbird.json
+            *_blackbird.csv
+            *_blackbird.pdf
+            *_blackbird.html
           if-no-files-found: warn
