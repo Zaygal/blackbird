@@ -45,7 +45,7 @@ jobs:
         run: |
           set -u
           echo "target: ${{ inputs.target }}"
-          python blackbird.py --username "${{ inputs.target }}" || true
+          python blackbird.py --username "${{ inputs.target }}" --json --csv || true
           echo "== produced =="
           find . -maxdepth 2 -newermt '-10 minutes' -type f | head -30
 
